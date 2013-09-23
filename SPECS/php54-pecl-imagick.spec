@@ -5,17 +5,16 @@
 %define real_name php-pecl-imagick
 %define php_base php54
 %define basever 3.1
-%define rc_version RC1
 
 Summary: Provides a wrapper to the ImageMagick library
 Name: %{php_base}-pecl-%peclName
-Version: 3.1.0
-Release: %{rc_version}.2.ius%{?dist}
+Version: 3.1.1
+Release: 1.ius%{?dist}
 License: PHP
 Group: Development/Libraries
-Source0: http://pecl.php.net/get/%peclName-%{version}%{rc_version}.tgz
+Source0: http://pecl.php.net/get/%peclName-%{version}.tgz
 Source1: %peclName.ini
-BuildRoot: %{_tmppath}/%{name}-%{version}%{rc_version}-root-%(%{__id_u} -n)
+BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(%{__id_u} -n)
 URL: http://pecl.php.net/package/%peclName
 BuildRequires: %{php_base}-pear
 BuildRequires: %{php_base}-devel, %{php_base}-cli, ImageMagick-devel >= 6.2.4
@@ -38,7 +37,7 @@ PHP 5.1.3+.
 IMPORTANT: Version 2.x API is not compatible with earlier versions.
 
 %prep
-%setup -q -n %{peclName}-%{version}%{rc_version}
+%setup -q -n %{peclName}-%{version}
 
 %build
 phpize
@@ -83,6 +82,9 @@ fi
 %{_includedir}/php/ext/imagick/php_imagick_shared.h
 
 %changelog
+* Mon Sep 23 2013 Ben Harper <ben.harper@rackspace.com> - 3.1.1-1.ius
+- latest release, 3.1.1
+
 * Tue Aug 21 2012 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.1.0-RC1.2.ius
 - Rebuilding against php54-5.4.6-2.ius as it is now using bundled PCRE.
 
